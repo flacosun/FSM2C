@@ -21,9 +21,9 @@ class jsonParser(object):
         except IOError:
             print("Failed to open json file.\n")
         data = json.load(jsonInput)
-        self.period = data["meta"]["period"]
-        self.initialState = data["meta"]["initial"]
-        self.variables = data["meta"]["variables"]
+        self.period = data["attributes"]["period"]
+        self.initialState = data["attributes"]["start"]
+        self.variables = data["attributes"]["variables"]
         self.states = data["states"]
         self.cPath = cPath
     
@@ -40,7 +40,6 @@ volatile unsigned char TimerFlag = 0;
 void TimerISR() {
     TimerFlag = 1;
 }
-void main() {
                       '''
         )
         outFile.close()
